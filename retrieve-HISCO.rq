@@ -1,9 +1,12 @@
 #+ summary: retrieve HISCO for given language
+#+ endpoint: https://druid.datalegend.net/IISG/HISCO/sparql/HISCO
 #+ tags:
 #+   - hisco
 #+   - occupationalCoding
+#+ defaults:
+#+   - name: advocaat
 
-PPREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX schema: <http://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -11,9 +14,9 @@ PREFIX hisco-code: <https://iisg.amsterdam/resource/hisco/code/hisco/>
 SELECT * WHERE {
   ?s schema:occupationalCategory ?category .
   ?category schema:codeValue ?code .
-  ?s schema:name ?name .
-  FILTER(lang(?name) = "nl") . # filter on a given language, like "es", "nl", "se"
-  FILTER regex(?name, "^arbeider", "i")
+  ?s schema:name ?_name_nl .
+  #FILTER(lang(?name) = "nl") . # filter on a given language, like "es", "nl", "se"
+  #FILTER regex(?name, "^arbeider", "i")
 } 
-ORDER BY ASC(?name)
+# ORDER BY ASC(?name)
 LIMIT 1 #NB: there may be multiple correct and more correct alternatives!
