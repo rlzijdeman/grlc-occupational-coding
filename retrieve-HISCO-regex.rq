@@ -17,5 +17,5 @@ SELECT * WHERE {
   FILTER(lang(?name) = "?_lang") . # filter on a given language, like "es", "nl", "se"
   FILTER regex(?name, "^?_label", "i")
   } 
-ORDER BY ASC(?_name_nl)
+ORDER BY ASC(?name)
 LIMIT 1 #NB: there may be multiple correct and more correct alternatives!
