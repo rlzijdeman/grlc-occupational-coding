@@ -1,10 +1,9 @@
 #+ summary: retrieve HISCO for given language
 #+ endpoint: https://druid.datalegend.net/IISG/HISCO/sparql/HISCO
 #+ tags:
-#+   - hisco
 #+   - occupationalCoding
 #+ defaults:
-#+   - name: advocaat
+#+   - name: advocaat 
 
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX schema: <http://schema.org/>
